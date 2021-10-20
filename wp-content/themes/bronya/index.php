@@ -199,15 +199,15 @@ foreach ($plenka as $post) { ?>
 	<div class="wrapper preview__wrap preview__wrap--revers">
 		<div class="preview__content">
 			<span class="glare glare--big preview__glare"></span>
-			<span class="preview__subtitle">Защита со&nbsp;всех сторон</span>
+			<span class="preview__subtitle"><?php echo $option_value = fw_get_db_settings_option('pretitle5'); ?></span>
 
-			<h2 class="preview__title">Максимально не&nbsp;заметно <br>на&nbsp;смартфоне.</h2>
+			<h2 class="preview__title"><?php echo $option_value = fw_get_db_settings_option('title5'); ?></h2>
 
 			<div class="preview__group">
-				<p class="preview__text">100% отклик сенсорного экрана <br>и&nbsp;подэкранного сканера <br>отпечатка пальца.</p>
+				<p class="preview__text"><?php echo $option_value = fw_get_db_settings_option('desc5'); ?></p>
 			</div>
 
-			<a href="https://wa.me/+79998412015" target="_blank" class="btn btn--white preview__button preview__button--whatsapp">Написать в&nbsp;whatsapp</a>
+			<a href="https://wa.me/<?php echo $option_value = fw_get_db_settings_option('wa_num'); ?>" target="_blank" class="btn btn--white preview__button preview__button--whatsapp">Написать в&nbsp;whatsapp</a>
 		</div>
 
 		<!-- Блок будет скопирован javascript-ом, для мобильной версии сайта. -->
@@ -219,7 +219,7 @@ foreach ($plenka as $post) { ?>
 </section>
 	<section class="pain">
 	<div class="wrapper pain__wrap">
-		<h2 class="pain__title">Надоели защитные стекла?</h2>
+		<h2 class="pain__title"><?php echo $option_value = fw_get_db_settings_option('title6'); ?></h2>
 
 		<ul class="pain__list">
 			<li class="pain__item">
@@ -230,7 +230,7 @@ foreach ($plenka as $post) { ?>
 					<path stroke="#fff" stroke-linecap="round" d="m18.196 32.669 13.083-9.158M22.314 38.223l14.519-11.879"></path>
 				</svg>
 
-				Стекло своей толщиной портит <br>внешний вид и&nbsp;впечатление <br>от&nbsp;использования
+				<?php echo $option_value = fw_get_db_settings_option('6one'); ?>
 			</li>
 
 			<li class="pain__item">
@@ -240,7 +240,7 @@ foreach ($plenka as $post) { ?>
 					<path d="M23.827 68.704 1.379 53.06M35.391 70.065l23.128-16.326M19.065 71.425 6.141 66.664M40.153 70.745l13.605-3.401" stroke="#fff" stroke-linecap="round"></path>
 				</svg>
 
-				Быстро появляются сколы <br>и&nbsp;трещины. Устройство теряет <br>аккуратный вид
+				<?php echo $option_value = fw_get_db_settings_option('6two'); ?>
 			</li>
 
 			<li class="pain__item">
@@ -264,7 +264,7 @@ foreach ($plenka as $post) { ?>
 					<rect x="41.309" y=".5" width="6.262" height="10.619" rx=".5" stroke="#fff"></rect>
 				</svg>
 
-				Стекло приходится <br>каждые 2-3&nbsp;месяца <br>менять на&nbsp;новое
+				<?php echo $option_value = fw_get_db_settings_option('6three'); ?>
 			</li>
 		</ul>
 	</div>
@@ -274,8 +274,16 @@ foreach ($plenka as $post) { ?>
 		<h2 class="photos__title">Фотографии наших работ</h2>
 
 		<div class="photos__gallery">
-			<div class="photos__gallery-item" style="background-image: url('<?php bloginfo('template_directory'); ?>/assets/img/photos/01.png');"></div>
-			<div class="photos__gallery-item" style="background-image: url('<?php bloginfo('template_directory'); ?>/assets/img/photos/02.png');"></div>
+			<?php
+  	$posts = get_posts(array(
+    "post_type" => "works",
+    'post_status' => 'publish',
+    'order' => 'ASC',
+));
+foreach ($posts as $post) { ?>
+			<div class="photos__gallery-item" style="background-image: url('<?php the_post_thumbnail_url(); ?>');"></div>
+		<?php } ?>
+			<!-- <div class="photos__gallery-item" style="background-image: url('<?php bloginfo('template_directory'); ?>/assets/img/photos/02.png');"></div>
 			<div class="photos__gallery-item" style="background-image: url('<?php bloginfo('template_directory'); ?>/assets/img/photos/03.png');"></div>
 			<div class="photos__gallery-item" style="background-image: url('<?php bloginfo('template_directory'); ?>/assets/img/photos/04.png');"></div>
 			<div class="photos__gallery-item" style="background-image: url('<?php bloginfo('template_directory'); ?>/assets/img/photos/05.png');"></div>
@@ -283,7 +291,7 @@ foreach ($plenka as $post) { ?>
 			<div class="photos__gallery-item" style="background-image: url('<?php bloginfo('template_directory'); ?>/assets/img/photos/02.png');"></div>
 			<div class="photos__gallery-item" style="background-image: url('<?php bloginfo('template_directory'); ?>/assets/img/photos/03.png');"></div>
 			<div class="photos__gallery-item" style="background-image: url('<?php bloginfo('template_directory'); ?>/assets/img/photos/04.png');"></div>
-			<div class="photos__gallery-item" style="background-image: url('<?php bloginfo('template_directory'); ?>/assets/img/photos/05.png');"></div>
+			<div class="photos__gallery-item" style="background-image: url('<?php bloginfo('template_directory'); ?>/assets/img/photos/05.png');"></div> -->
 		</div>
 
 		<button class="btn photos__more">Смотреть еще</button>
@@ -293,16 +301,15 @@ foreach ($plenka as $post) { ?>
 	<div class="wrapper preview__wrap">
 		<div class="preview__content">
 			<span class="glare glare--big preview__glare"></span>
-			<span class="preview__subtitle">Защита со&nbsp;всех сторон</span>
+			<span class="preview__subtitle"><?php echo $option_value = fw_get_db_settings_option('pretitle8'); ?></span>
 
-			<h2 class="preview__title">Не&nbsp;увеличивает <br>размеры устройства</h2>
+			<h2 class="preview__title"><?php echo $option_value = fw_get_db_settings_option('title8'); ?></h2>
 
 			<div class="preview__group">
-				<p class="preview__text">Ультратонкая плёнка не&nbsp;увеличивает <br>габариты устройства, в&nbsp;отличие <br>от&nbsp;чехлов и&nbsp;стекол.</p>
-				<p class="preview__text">Она незаметна, что позволяет наслаждаться <br>вашим любимым смартфоном в&nbsp;том виде, <br>в&nbsp;котором вы&nbsp;его приобрели.</p>
+				<p class="preview__text"><?php echo $option_value = fw_get_db_settings_option('desc8'); ?></p>
 			</div>
 
-			<a href="https://wa.me/+79998412015" target="_blank" class="btn btn--white preview__button preview__button--whatsapp">Написать в&nbsp;whatsapp</a>
+			<a href="https://wa.me/<?php echo $option_value = fw_get_db_settings_option('wa_num'); ?>" target="_blank" class="btn btn--white preview__button preview__button--whatsapp">Написать в&nbsp;whatsapp</a>
 			<a href="https://xn--360-9cd4dfn6j.xn--p1ai/assets/app/img/templates/price_A4%20(1).jpg" target="_blank" class="btn preview__button">Посмотреть цены</a>
 		</div>
 
@@ -315,31 +322,25 @@ foreach ($plenka as $post) { ?>
 </section>
 	<section id="reviews" class="reviews">
 	<div class="wrapper reviews__wrap">
-		<span class="reviews__subtitle">Защита со&nbsp;всех сторон</span>
-		<h2 class="reviews__title">Отзывы наших клиентов</h2>
+		<span class="reviews__subtitle"><?php echo $option_value = fw_get_db_settings_option('pretitle9'); ?></span>
+		<h2 class="reviews__title"><?php echo $option_value = fw_get_db_settings_option('title9'); ?></h2>
 	</div>
 
 	<div class="reviews__list">
+		<?php
+  	$review = get_posts(array(
+    "post_type" => "review",
+    'post_status' => 'publish',
+    'order' => 'ASC',
+));
+foreach ($review as $post) { ?>
+
 		<picture class="reviews__item">
-			<source srcset="<?php bloginfo('template_directory'); ?>/assets/img/reviews/item.webp" type="image/webp">
-			<img src="<?php bloginfo('template_directory'); ?>/assets/img/reviews/item.png" class="reviews__item-img" alt="Отзыв">
+			<source srcset="<?php the_post_thumbnail_url(); ?>" type="image/webp">
+			<img src="<?php the_post_thumbnail_url(); ?>" class="reviews__item-img" alt="Отзыв">
 		</picture>
-		<picture class="reviews__item">
-			<source srcset="<?php bloginfo('template_directory'); ?>/assets/img/reviews/item.webp" type="image/webp">
-			<img src="<?php bloginfo('template_directory'); ?>/assets/img/reviews/item.png" class="reviews__item-img" alt="Отзыв">
-		</picture>
-		<picture class="reviews__item">
-			<source srcset="<?php bloginfo('template_directory'); ?>/assets/img/reviews/item.webp" type="image/webp">
-			<img src="<?php bloginfo('template_directory'); ?>/assets/img/reviews/item.png" class="reviews__item-img" alt="Отзыв">
-		</picture>
-		<picture class="reviews__item">
-			<source srcset="<?php bloginfo('template_directory'); ?>/assets/img/reviews/item.webp" type="image/webp">
-			<img src="<?php bloginfo('template_directory'); ?>/assets/img/reviews/item.png" class="reviews__item-img" alt="Отзыв">
-		</picture>
-		<picture class="reviews__item">
-			<source srcset="<?php bloginfo('template_directory'); ?>/assets/img/reviews/item.webp" type="image/webp">
-			<img src="<?php bloginfo('template_directory'); ?>/assets/img/reviews/item.png" class="reviews__item-img" alt="Отзыв">
-		</picture>
+	<?php } ?>
+		
 	</div>
 
 	<div class="wrapper arrow reviews__arrows">
@@ -351,15 +352,12 @@ foreach ($plenka as $post) { ?>
 	<div class="wrapper preview__wrap preview__wrap--revers">
 		<div class="preview__content">
 			<span class="glare glare--big preview__glare"></span>
-			<span class="preview__subtitle">Защита со&nbsp;всех сторон</span>
+			<span class="preview__subtitle"><?php echo $option_value = fw_get_db_settings_option('pretitle10'); ?></span>
 
-			<h2 class="preview__title">Чем Броня&nbsp;360° <br>лучше остальных?</h2>
+			<h2 class="preview__title"><?php echo $option_value = fw_get_db_settings_option('title10'); ?></h2>
 
 			<div class="preview__group">
-				<p class="preview__text">Мы стремимся к&nbsp;созданию идеального <br>продукта для нашего клиента.</p>
-				<p class="preview__text">Создаём лекало для любого устройства.</p>
-				<p class="preview__text">Мы&nbsp;используем только проверенные <br>нами материалы.</p>
-				<p class="preview__text">Каждому клиенту мы&nbsp;предоставляем <br>бесплатную гарантию на&nbsp;материал <br>и&nbsp;работу</p>
+				<?php echo $option_value = fw_get_db_settings_option('desc10'); ?>
 			</div>
 		</div>
 
@@ -374,15 +372,22 @@ foreach ($plenka as $post) { ?>
 	<h2 class="wrapper in-youtube__title">Броня&nbsp;360° в&nbsp;YOUTUBE</h2>
 
 	<div class="in-youtube__slider">
+
+		<?php
+  	$video = get_posts(array(
+    "post_type" => "video",
+    'post_status' => 'publish',
+    'order' => 'ASC',
+	));
+	foreach ($video as $post) { ?>
+
 		<div class="in-youtube__item">
-			<iframe class="in-youtube__video" src="https://www.youtube.com/embed/l9FxPX8vgpY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<?php 
+			the_excerpt();
+			 ?>
 		</div>
-		<div class="in-youtube__item">
-			<iframe class="in-youtube__video" src="https://www.youtube.com/embed/wR9PN1ATvT0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		</div>
-		<div class="in-youtube__item">
-			<iframe class="in-youtube__video" src="https://www.youtube.com/embed/s_CJB8IKUBM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		</div>
+<?php } ?>
+
 	</div>
 
 	<div class="wrapper arrow in-youtube__arrows">
@@ -394,19 +399,15 @@ foreach ($plenka as $post) { ?>
 	<div class="wrapper preview__wrap preview__wrap--revers">
 		<div class="preview__content">
 			<span class="glare glare--big preview__glare"></span>
-			<span class="preview__subtitle">Защита со&nbsp;всех сторон</span>
+			<span class="preview__subtitle"><?php echo $option_value = fw_get_db_settings_option('pretitle12'); ?></span>
 
-			<h2 class="preview__title">Дарим скидку&nbsp;30% на&nbsp;комплект.</h2>
+			<h2 class="preview__title"><?php echo $option_value = fw_get_db_settings_option('title12'); ?></h2>
 
 			<div class="preview__group discount__group">
-				<p class="preview__text discount__item discount__item--number">Подписаться на&nbsp;наш <br>инстаграм @bronya360_msk</p>
-				<p class="preview__text discount__item discount__item--number">Установить комплект&nbsp;360° <br>можно на&nbsp;любой смартфон.</p>
-				<p class="preview__text discount__item discount__item--number">Из&nbsp;любого материала.</p>
-				<p class="preview__text discount__item">Установить можно на&nbsp;торговых <br>точках: Авиапарк, Город, Zеленопарк.</p>
-				<p class="preview__text discount__item discount__code">Промокод:&nbsp;Skidka30%</p>
+				<?php echo $option_value = fw_get_db_settings_option('text12'); ?>
 			</div>
 
-			<a href="https://wa.me/+79998412015" target="_blank" class="btn btn--white preview__button discount__btn preview__button--whatsapp">Написать в&nbsp;whatsapp</a>
+			<a href="https://wa.me/<?php echo $option_value = fw_get_db_settings_option('wa_num'); ?>" target="_blank" class="btn btn--white preview__button discount__btn preview__button--whatsapp">Написать в&nbsp;whatsapp</a>
 		</div>
 
 		<picture class="discount__box">
@@ -417,9 +418,9 @@ foreach ($plenka as $post) { ?>
 </section>
 	<footer id="contacts" class="footer">
 	<div class="wrapper footer__wrap">
-		<h2 class="footer__title">Для уточнения адреса и&nbsp;цен на&nbsp;нашу продукцию <br>вы&nbsp;можете связаться с&nbsp;нами в&nbsp;whatsapp</h2>
+		<h2 class="footer__title"><?php echo $option_value = fw_get_db_settings_option('title13'); ?></h2>
 
-		<a href="https://wa.me/+79998412015" target="_blank" class="btn btn--white footer__whatsapp">Написать в&nbsp;whatsapp</a>
+		<a href="https://wa.me/<?php $option_value = fw_get_db_settings_option('wa_num'); ?>" target="_blank" class="btn btn--white footer__whatsapp">Написать в&nbsp;whatsapp</a>
 
 		<iframe class="footer__map" src="https://yandex.ru/map-widget/v1/?um=constructor%3A7efafc83d00a65615dcabed14568657aa27d09989466911679081e44b5d6ff2c&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
 
@@ -431,33 +432,15 @@ foreach ($plenka as $post) { ?>
 				</div>
 
 				<p class="footer__item">
-					<strong class="footer__item-strong">ТРЦ ZЕЛЕНОПАРК</strong>
-
-					18&nbsp;км от&nbsp;МКАД<br>
-					по&nbsp;Ленинградскому шоссе<br>
-					Рядом с&nbsp;магазином Samsung и&nbsp;Ноу-Хау<br>
-					График работы:<br>
-					Пн -&nbsp;Вс: 10.00 -&nbsp;22.00
+					<?php echo $option_value = fw_get_db_settings_option('msk1'); ?>
 				</p>
 
 				<p class="footer__item">
-					<strong class="footer__item-strong">ТРЦ “ГОРОД-ЛЕФОРТОВО”</strong>
-
-					(м.&nbsp;Авиамоторная, ш.&nbsp;Энтузиастов,&nbsp;12, корп.&nbsp;2)<br>
-					1-й&nbsp;этаж напротив магазина “mayorgo”<br>
-					График работы:<br>
-					Пн -&nbsp;Вс: 10.00 -&nbsp;22.00
+					<?php echo $option_value = fw_get_db_settings_option('msk2'); ?>
 				</p>
 
 				<p class="footer__item">
-					<strong class="footer__item-strong">ТРЦ АВИАПАРК</strong>
-
-					3-й&nbsp;этаж<br>
-					напротив магазина Adidas<br>
-					График работы:<br>
-					Пн -&nbsp;Чт: 10.00 -&nbsp;22.00<br>
-					Пт -&nbsp;Сб: 10.00 -&nbsp;23.00<br>
-					Вс:&nbsp;10.00 -&nbsp;22.00
+					<?php echo $option_value = fw_get_db_settings_option('msk3'); ?>
 				</p>
 			</div>
 
@@ -468,34 +451,15 @@ foreach ($plenka as $post) { ?>
 				</div>
 
 				<p class="footer__item">
-					<strong class="footer__item-strong">ТРЦ ОХТА МОЛЛ</strong>
-
-					л.&nbsp;Брантовская дорога,&nbsp;3<br>
-					2-й&nbsp;этаж,<br>
-					напротив "День Сурка"<br>
-					График работы:<br>
-					Пн -&nbsp;Вс: 10.00 -&nbsp;22.00<br>
-					Тел. +7&nbsp;962&nbsp;706-95-14 (Артем)
+					<?php echo $option_value = fw_get_db_settings_option('spb1'); ?>
 				</p>
 
 				<p class="footer__item">
-					<strong class="footer__item-strong">МЕГА ДЫБЕНКО</strong>
-
-					12-й&nbsp;км Мурманское шоссе.<br>
-					напротив магазина Аскона<br>
-					График работы:<br>
-					Пн -&nbsp;Вс: 10.00 -&nbsp;22.00<br>
-					Тел. +7&nbsp;962&nbsp;706-95-14 (Артем)
+					<?php echo $option_value = fw_get_db_settings_option('spb2'); ?>
 				</p>
 
 				<p class="footer__item">
-					<strong class="footer__item-strong">ТРЦ ЛЕТО</strong>
-
-					Пулковское&nbsp;ш.,&nbsp;25, корп.&nbsp;1<br>
-					напротив магазина «Ашан»<br>
-					График работы:<br>
-					ЕЖЕДНЕВНО С&nbsp;10:00-22:00<br>
-					Тел. +7&nbsp;921&nbsp;587-58-88
+					<?php echo $option_value = fw_get_db_settings_option('spb3'); ?>
 				</p>
 			</div>
 
@@ -505,13 +469,7 @@ foreach ($plenka as $post) { ?>
 				</div>
 
 				<p class="footer__item">
-					<strong class="footer__item-strong">ТРЦ АУРА</strong>
-
-					ул.&nbsp;Победы,&nbsp;41<br>
-					1-й&nbsp;этаж (напротив Reserved)<br>
-					График работы:<br>
-					Пн -&nbsp;Вс: 10.00 -&nbsp;22.00<br>
-					Тел. +7&nbsp;915&nbsp;993-04-81 (Иван)
+					<?php echo $option_value = fw_get_db_settings_option('yrs1'); ?>
 				</p>
 			</div>
 
@@ -521,13 +479,7 @@ foreach ($plenka as $post) { ?>
 				</div>
 
 				<p class="footer__item">
-					<strong class="footer__item-strong">ТРЦ КОСМОПОРТ</strong>
-
-					Ул.&nbsp;Дыбенко,&nbsp;30<br>
-					1-й&nbsp;этаж (напротив магазина NewYorker)<br>
-					График работы:<br>
-					Пн -&nbsp;Вс: 10.00 -&nbsp;22.00<br>
-					Тел. +7&nbsp;960&nbsp;179-65-95
+					<?php echo $option_value = fw_get_db_settings_option('smr1'); ?>
 				</p>
 			</div>
 
@@ -537,18 +489,13 @@ foreach ($plenka as $post) { ?>
 				</div>
 
 				<p class="footer__item">
-					<strong class="footer__item-strong">ТРЦ "МЕГА"</strong>
-
-					1-й&nbsp;этаж, напротив М.Видео<br>
-					График работы:<br>
-					Пн -&nbsp;Вс: 10.00 -&nbsp;22.00<br>
-					Тел. +7&nbsp;962&nbsp;706-95-14 (Артем)
+					<?php echo $option_value = fw_get_db_settings_option('nng'); ?>
 				</p>
 			</div>
 		</div>
 
 		<div class="footer__group footer__group--down">
-			<p class="footer__copy">Copyright &copy;&nbsp;2021. Броня360. Все права защищены</p>
+			<p class="footer__copy"><?php echo $option_value = fw_get_db_settings_option('copyright'); ?></p>
 
 			<div class="social footer__social">
 				<a href="https://www.tiktok.com/@bronya360msk" target="_blank" class="social__item social__item--youtube footer__social-link"><svg class="el-decor social__icon" aria-hidden="true"><use xlink:href="#tik-tok"></use></svg></a>
